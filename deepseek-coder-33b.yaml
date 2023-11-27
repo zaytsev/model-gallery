@@ -1,0 +1,39 @@
+name: "deepseek-coder-33b"
+
+description: |
+  DeepSeek Coder 33b Model
+
+license: "https://huggingface.co/deepseek-ai/deepseek-coder-33b-instruct/blob/main/LICENSE"
+urls:
+-  https://huggingface.co/deepseek-ai/deepseek-coder-33b-instruct
+
+config_file: |
+  name: deepseek-coder-33b
+  context_size: 4096
+  f16: true
+  mmap: true
+  threads: 4
+  parameters:
+    model: deepseek-coder-33b-instruct.Q5_K_M.gguf
+    temperature: 0.2
+    top_k: 40
+    top_p: 0.95
+  template:
+    chat: deepseek-coder-33b-chat
+    completion: deepseek-coder-33b-completion
+
+prompt_templates:
+- name: "deepseek-coder-33b-chat"
+  content: |
+   You are an AI programming assistant, utilizing the Deepseek Coder model, developed by Deepseek Company, and you only answer questions related to computer science. For politically sensitive questions, security and privacy issues, and other non-computer science questions, you will refuse to answer.
+   ### Instruction:
+   {{.Input}}
+   ### Response:
+- name: "deepseek-coder-33b-completion"
+  content: |
+    {{.Input}}
+    
+files:
+- filename: "deepseek-coder-33b-instruct.Q5_K_M.gguf"
+  sha256: "63db52beba37be15e049e603de12b97dc9d3302493be2454602ade3cb091c927"
+  uri: "https://huggingface.co/TheBloke/deepseek-coder-33B-instruct-GGUF/resolve/main/deepseek-coder-33b-instruct.Q5_K_M.gguf"
