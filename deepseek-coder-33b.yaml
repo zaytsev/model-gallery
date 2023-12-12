@@ -9,7 +9,7 @@ urls:
 
 config_file: |
   name: deepseek-coder-33b
-  context_size: 4096
+  context_size: 16000
   f16: true
   #mmap: true
   gpu_layers: 65
